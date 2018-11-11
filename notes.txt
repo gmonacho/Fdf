@@ -1,0 +1,38 @@
+# **************************************************************************** #
+#                                                           LE - /             #
+#                                                               /              #
+#    notes.txt                                        .::    .:/ .      .::    #
+#                                                  +:+:+   +:    +:  +:+:+     #
+#    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#                                                  #+#   #+    #+    #+#       #
+#    Created: 2018/11/07 03:55:55 by gmonacho     #+#   ##    ##    #+#        #
+#    Updated: 2018/11/09 17:37:34 by gmonacho    ###    #+. /#+    ###.fr      #
+#                                                          /                   #
+#                                                         /                    #
+# **************************************************************************** #
+
+gcc -I /usr/local/include main.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+
+-------------PARSING--------------------
+line |0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0| nb_spaces = 16 len = nb_spaces + 2;
+----------------------------------------
+
+Fonctions :
+-Arc de cercle pour perspective :
+	f(x) = sqrt(r^2 - x^2);
+	=> Posy Point = sqrt(r^2) ??????
+
+Touches :
+w = 13;
+s = 1;
+up = 126;
+down = 125;
+
+Plan :
+
+		^ X
+		|
+		|     Y
+		'------>
+       /
+   Z  V
