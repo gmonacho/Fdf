@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   3Delipse.c                                       .::    .:/ .      .::   */
+/*   print_elipse.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/10 17:49:17 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/15 18:37:33 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/11/11 19:48:26 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/11/12 18:49:13 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-double			y_elipse(double a, double b, double x)
+void	print_elipse(double a, double b, void *mlx_ptr, void *win_ptr)
 {
-	if (b != 0)
-		return ((a/b) * (double)sqrt(b * b - x * x));
-	else
-		return (0);
+	double		x;
+	double		y;
+
+	x = -b;
+	while (x <= b)
+	{
+		y = y_elipse(a, b, x);
+		mlx_pixel_put(mlx_ptr, win_ptr, WX / 2 - x, WY / 2 - y, 0x0000FF);
+		x++;
+	}
+	x = -b;
+	while (x <= b)
+	{
+		y = -y_elipse(a, b, x);
+		mlx_pixel_put(mlx_ptr, win_ptr, WX / 2 - x, WY / 2 - y, 0x0000FF);
+		x++;
+	}
 }

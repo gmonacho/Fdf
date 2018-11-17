@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/10 18:08:20 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/15 20:33:26 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,12 +24,23 @@
 # include <stdio.h>
 # include <math.h>
 
+typedef struct		s_vector
+{
+	double		vx;
+	double		vy;
+	double		vz;
+}					t_vector;
+
+
 typedef struct		s_axe
 {
 	double		a;
 	double		b;
+	double		x;
+	double		y;
+	double		alpha;
+	t_vector	vector;
 }					t_axe;
-
 
 typedef struct		s_rotation
 {
@@ -68,10 +79,13 @@ typedef struct		s_window
 int			open_window();
 int			parser(int const fd, t_map *amap);
 void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr);
-void		map_put(t_map map, void *mlx_ptr, void *win_ptr);
+t_map		map_put(t_map map, void *mlx_ptr, void *win_ptr);
 t_point		create_point(double x, double y);
 double		arc_cercle(double x, double r);
 double		y_elipse(double a, double b, double x);
-double		x_elipse(double a, double b, double y);
+double		x_elipse(double a, double b, double alpha);
+double		radian(double angle);
+void		print_elipse(double a, double b, void *mlx_ptr, void *win_ptr);
+void		map_info(t_window window);
 
 #endif

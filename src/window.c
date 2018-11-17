@@ -6,42 +6,44 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/10 19:26:07 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/15 17:52:51 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	deal_key(int key, t_window *window)
+static int	deal_key(int key, t_window *window)
 {
 	if (key == 126)
 	{
-		(*window).map.axes.y.a -= 1.0;
-		(*window).map.axes.x.a += 1.0;
+		(*window).map.axes.y.a -= 3.0;
+		(*window).map.axes.x.a += 3.0;
 	}
 	else if (key == 125)
 	{
-		(*window).map.axes.y.a += 1.0;
-		(*window).map.axes.x.a -= 1.0;
+		(*window).map.axes.y.a += 3.0;
+		(*window).map.axes.x.a -= 3.0;
 	}
-/*	if (key == 124)
-		(*window).map.rotate.x_ratio += 0.1;
+	if (key == 124)
+		(*window).map.axes.y.alpha += 5;
 	else if (key == 123)
-		(*window).map.rotate.x_ratio -= 0.1;*/
+		(*window).map.axes.y.alpha -= 5;
 	mlx_clear_window((*window).mlx_ptr, (*window).win_ptr);
-	map_put((*window).map, (*window).mlx_ptr, (*window).win_ptr);
+	(*window).map = map_put((*window).map, (*window).mlx_ptr, (*window).win_ptr);
+	map_info(*window);
 	return (0);
 }
 
-int		open_window(t_map map)
+int			open_window(t_map map)
 {
 	t_window	window;
 
 	window.mlx_ptr = mlx_init();
 	window.win_ptr = mlx_new_window(window.mlx_ptr, WX, WY, "Fdf");
 	window.map = map;
-	map_put(map, window.mlx_ptr, window.win_ptr);
+	window.map = map_put(map, window.mlx_ptr, window.win_ptr);
+	map_info(window);
 	mlx_key_hook(window.win_ptr, deal_key, &window);
 	mlx_loop(window.mlx_ptr);
 	return (1);

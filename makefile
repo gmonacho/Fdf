@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/06 19:11:00 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/10 18:09:00 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/14 22:25:59 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,7 +21,10 @@ SRC = ./src/main.c \
 	  ./src/create_point.c \
 	  ./src/arc_cercle.c \
 	  ./src/x_elipse.c \
-	  ./src/y_elipse.c
+	  ./src/y_elipse.c \
+	  ./src/radian.c \
+	  ./src/print_elipse.c \
+	  ./src/map_info.c
 
 OBJ = $(SRC:%.c=%.o)
 

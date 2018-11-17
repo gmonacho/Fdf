@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/07 03:55:55 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/09 17:37:34 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/12 18:40:14 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -17,10 +17,16 @@ gcc -I /usr/local/include main.c -L /usr/local/lib/ -lmlx -framework OpenGL -fra
 line |0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0| nb_spaces = 16 len = nb_spaces + 2;
 ----------------------------------------
 
+Impression Ligne :
+
+
 Fonctions :
--Arc de cercle pour perspective :
-	f(x) = sqrt(r^2 - x^2);
-	=> Posy Point = sqrt(r^2) ??????
+-Elipse pour perspective :
+	f(x) = (a / b) * sqrt(a^2 - x^2);
+Points a gerer :
+-Rotation complete, quand depassement a, retour en arriere.
+-Quand (p1.x > p2.x);
+
 
 Touches :
 w = 13;
@@ -36,3 +42,5 @@ Plan :
 		'------>
        /
    Z  V
+
+
