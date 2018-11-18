@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/15 17:52:51 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/18 15:41:32 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,10 +25,14 @@ static int	deal_key(int key, t_window *window)
 		(*window).map.axes.y.a += 3.0;
 		(*window).map.axes.x.a -= 3.0;
 	}
-	if (key == 124)
-		(*window).map.axes.y.alpha += 5;
+	else if (key == 124)
+		(*window).map.axes.y.alpha += 5.0;
 	else if (key == 123)
-		(*window).map.axes.y.alpha -= 5;
+		(*window).map.axes.y.alpha -= 5.0;
+	else if (key == 13)
+		(*window).map.unit += 2.0;
+	else if (key == 1)
+		(*window).map.unit -= 2.0;
 	mlx_clear_window((*window).mlx_ptr, (*window).win_ptr);
 	(*window).map = map_put((*window).map, (*window).mlx_ptr, (*window).win_ptr);
 	map_info(*window);

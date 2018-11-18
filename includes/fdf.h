@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/15 20:33:26 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/18 16:25:43 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,9 +26,8 @@
 
 typedef struct		s_vector
 {
-	double		vx;
-	double		vy;
-	double		vz;
+	double		x;
+	double		y;
 }					t_vector;
 
 
@@ -39,7 +38,6 @@ typedef struct		s_axe
 	double		x;
 	double		y;
 	double		alpha;
-	t_vector	vector;
 }					t_axe;
 
 typedef struct		s_rotation
@@ -61,6 +59,7 @@ typedef struct		s_map
 	double		unit;
 	int			**tab;
 	t_rot		axes;
+	t_vector	vec[3];
 }					t_map;
 
 typedef struct		s_point
@@ -81,11 +80,13 @@ int			parser(int const fd, t_map *amap);
 void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr);
 t_map		map_put(t_map map, void *mlx_ptr, void *win_ptr);
 t_point		create_point(double x, double y);
+t_point		create_vpoint(int ix, int iz, int iy, t_map map);
 double		arc_cercle(double x, double r);
 double		y_elipse(double a, double b, double x);
 double		x_elipse(double a, double b, double alpha);
 double		radian(double angle);
 void		print_elipse(double a, double b, void *mlx_ptr, void *win_ptr);
 void		map_info(t_window window);
+t_map		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
 
 #endif
