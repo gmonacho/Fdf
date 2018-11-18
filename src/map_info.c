@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/14 22:18:46 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/15 17:34:55 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/18 17:11:05 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,10 @@ void	map_info(t_window window)
 {
 	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 30, 0xFFFFFF, ft_strjoin("Unit = ", ft_itoa(window.map.unit)));
 	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 50, 0xFFFFFF, ft_strjoin("Vert_Unit = ", ft_itoa(window.map.axes.y.a)));
-	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 70, 0xFFFFFF, ft_strjoin("xVX = ", ft_itoa(window.map.axes.x.vector.vx)));
-	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 90, 0xFFFFFF, ft_strjoin("xVY = ", ft_itoa(window.map.axes.x.vector.vy)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 70, 0xFFFFFF, ft_strjoin("vx.x = ", ft_itoa(window.map.vec[0].x)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 90, 0xFFFFFF, ft_strjoin("vx.y = ", ft_itoa(window.map.vec[0].y)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 110, 0xFFFFFF, ft_strjoin("vz.x = ", ft_itoa(window.map.vec[1].x)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 130, 0xFFFFFF, ft_strjoin("vz.y = ", ft_itoa(window.map.vec[1].y)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 150, 0xFFFFFF, ft_strjoin("vy.x = ", ft_itoa(window.map.vec[2].x)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 170, 0xFFFFFF, ft_strjoin("vy.y = ", ft_itoa(window.map.vec[2].y)));
 }
