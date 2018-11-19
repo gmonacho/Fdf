@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/15 18:22:19 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/18 17:29:34 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/18 17:38:56 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ static void		disp_hor(t_map map, void *mlx_ptr, void *win_ptr)
 		j = 0;
 		while (j < map.size.j)
 		{
-			p2 = create_vpoint(j, i, map.tab[i][j], map);
+			p2 = create_vpoint(j, i, -map.tab[i][j], map);
 			if (j > 0)
 				line_put(p1, p2, mlx_ptr, win_ptr);
 			j++;
@@ -51,7 +51,7 @@ static void		disp_vec(t_map map, void *mlx_ptr, void *win_ptr)
 		i = 0;
 		while (i < map.size.i)
 		{
-			p2 = create_vpoint(j, i, map.tab[i][j], map);
+			p2 = create_vpoint(j, i, -map.tab[i][j], map);
 			if (i > 0)
 				line_put(p1, p2, mlx_ptr, win_ptr);
 			i++;
