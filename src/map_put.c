@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/15 18:22:19 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/18 17:38:56 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/21 19:46:44 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ static void		disp_hor(t_map map, void *mlx_ptr, void *win_ptr)
 		while (j < map.size.j)
 		{
 			p2 = create_vpoint(j, i, -map.tab[i][j], map);
-			if (j > 0)
+			if (j > 0 && (int)is_in_screen(p1) && (int)is_in_screen(p2))
 				line_put(p1, p2, mlx_ptr, win_ptr);
 			j++;
 			p1 = p2;
@@ -52,7 +52,7 @@ static void		disp_vec(t_map map, void *mlx_ptr, void *win_ptr)
 		while (i < map.size.i)
 		{
 			p2 = create_vpoint(j, i, -map.tab[i][j], map);
-			if (i > 0)
+			if (i > 0 && (int)is_in_screen(p1) && (int)is_in_screen(p2))
 				line_put(p1, p2, mlx_ptr, win_ptr);
 			i++;
 			p1 = p2;
@@ -74,6 +74,6 @@ t_map			map_put(t_map map, void *mlx_ptr, void *win_ptr)
 
 	print_elipse(map.axes.x.a, map.axes.x.b, mlx_ptr, win_ptr);
 	new_map = axes_put(map, mlx_ptr, win_ptr);
-	disp_map(map, mlx_ptr, win_ptr);
+	disp_map(new_map, mlx_ptr, win_ptr);
 	return (new_map);
 }

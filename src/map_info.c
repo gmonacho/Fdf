@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/14 22:18:46 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/18 17:11:05 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/21 17:43:18 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,4 +23,5 @@ void	map_info(t_window window)
 	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 130, 0xFFFFFF, ft_strjoin("vz.y = ", ft_itoa(window.map.vec[1].y)));
 	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 150, 0xFFFFFF, ft_strjoin("vy.x = ", ft_itoa(window.map.vec[2].x)));
 	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 170, 0xFFFFFF, ft_strjoin("vy.y = ", ft_itoa(window.map.vec[2].y)));
+	mlx_string_put(window.mlx_ptr, window.win_ptr, 30, 190, 0xFFFFFF, ft_strjoin("alpha = ", ft_itoa(window.map.axes.y.alpha)));
 }

@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/18 16:25:43 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/21 19:26:54 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -88,5 +88,6 @@ double		radian(double angle);
 void		print_elipse(double a, double b, void *mlx_ptr, void *win_ptr);
 void		map_info(t_window window);
 t_map		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
+int			is_in_screen(t_point p);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/18 15:43:10 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/19 18:51:43 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/21 17:48:04 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,8 +26,6 @@ static t_map		set_vectors(t_map map)
 
 static t_map	ax_put(t_map map, void *mlx_ptr, void *win_ptr)
 {
-	printf("alpha = %f\n", map.axes.y.alpha);
-	printf("alpha mod 360 = %d\n", (int)map.axes.y.alpha % 360);
 	map.axes.x.x = x_elipse(map.axes.x.a, map.axes.x.b, map.axes.y.alpha);
 	map.axes.x.y = y_elipse(map.axes.x.a, map.axes.x.b, map.axes.x.x);
 	if ((int)map.axes.y.alpha % 360 > 90 && (int)map.axes.y.alpha % 360 < 270)
