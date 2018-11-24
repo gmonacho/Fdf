@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 01:48:41 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 06:48:22 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -88,7 +88,9 @@ void		map_info(t_window window);
 void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr);
 void		map_put(t_map map, void *mlx_ptr, void *win_ptr);
 void		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
+void		fill_para(t_point p1, t_point p2, t_point p3, void *mlx_ptr, void *win_ptr);
 t_point		create_point(double x, double y);
 t_point		create_vpoint(double ix, double iz, double iy, t_map map);
+t_point		create_rpoint(double x, double y);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/06 19:11:00 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/21 19:25:37 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/24 06:48:48 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -27,7 +27,9 @@ SRC = ./src/main.c \
 	  ./src/map_info.c \
 	  ./src/axes_put.c \
 	  ./src/create_vpoint.c \
-	  ./src/is_in_screen.c
+	  ./src/is_in_screen.c \
+	  ./src/fill_para.c \
+	  ./src/create_rpoint.c
 
 OBJ = $(SRC:%.c=%.o)
 
