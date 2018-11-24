@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/21 19:26:54 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 01:48:41 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,7 @@ typedef struct		s_vector
 {
 	double		x;
 	double		y;
+	double		alpha;
 }					t_vector;
 
 
@@ -77,17 +78,17 @@ typedef struct		s_window
 
 int			open_window();
 int			parser(int const fd, t_map *amap);
-void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr);
-t_map		map_put(t_map map, void *mlx_ptr, void *win_ptr);
-t_point		create_point(double x, double y);
-t_point		create_vpoint(int ix, int iz, int iy, t_map map);
+int			is_in_screen(t_point p);
 double		arc_cercle(double x, double r);
 double		y_elipse(double a, double b, double x);
 double		x_elipse(double a, double b, double alpha);
 double		radian(double angle);
 void		print_elipse(double a, double b, void *mlx_ptr, void *win_ptr);
 void		map_info(t_window window);
-t_map		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
-int			is_in_screen(t_point p);
+void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr);
+void		map_put(t_map map, void *mlx_ptr, void *win_ptr);
+void		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
+t_point		create_point(double x, double y);
+t_point		create_vpoint(double ix, double iz, double iy, t_map map);
 
 #endif

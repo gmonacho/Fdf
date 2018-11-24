@@ -6,12 +6,14 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/11 17:31:01 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/11 20:08:47 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 02:55:22 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include "../includes/fdf.h"
+
 double		radian(double angle)
 {
-	return (((angle * 3.14116 * 2) / 360));
+	return (((angle * M_PI * 2) / 360));
 }

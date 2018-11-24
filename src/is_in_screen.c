@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/21 19:18:03 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/21 19:26:36 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/21 20:55:21 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 int		is_in_screen(t_point p)
 {
-	if ((p.x < 0 || p.x > WX) && (p.y < 0 || p.y > WY))
+	if (p.x < 0 || p.x > WX || p.y < 0 || p.y > WY)
 		return (0);
 	else
 		return (1);
