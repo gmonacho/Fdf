@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 06:45:54 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 20:32:23 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,7 +43,7 @@ static int	deal_key(int key, t_window *window)
 		(*window).map.vec[2] = set_vector((*window).map.vec[2], (*window).map.vec[1].alpha);
 		(*window).map.vec[1].alpha = 0;
 	}
-	/*else if (key == 126)
+	else if (key == 126)
 	{
 		(*window).map.vec[0].alpha = 3;
 		(*window).map.vec[1] = set_vector((*window).map.vec[1], (*window).map.vec[0].alpha);
@@ -56,7 +56,7 @@ static int	deal_key(int key, t_window *window)
 		(*window).map.vec[1] = set_vector((*window).map.vec[1], (*window).map.vec[0].alpha);
 		(*window).map.vec[2] = set_vector((*window).map.vec[2], (*window).map.vec[0].alpha);
 		(*window).map.vec[0].alpha = 0;
-	}*/
+	}
 	fill_para(create_point(WX / 2, WY / 2), create_point(WX / 2 + 100, WY / 2 + 30), create_point(WX / 2, WY / 2 + 200), (*window).mlx_ptr, (*window).win_ptr);
 	mlx_clear_window((*window).mlx_ptr, (*window).win_ptr);
 	map_put((*window).map, (*window).mlx_ptr, (*window).win_ptr);

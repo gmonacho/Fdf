@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/11 18:37:24 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 04:12:24 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/25 17:48:28 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,7 @@ int		main(int ac, char **av)
 		map.vec[0].x = map.unit;
 		map.vec[0].y = -map.unit;
 		map.vec[1].x = 0;
-		map.vec[1].y = -map.unit;
+		map.vec[1].y = map.unit;
 		map.vec[2].x = -map.unit;
 		map.vec[2].y = -map.unit;
 		open_window(map);

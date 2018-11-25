@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 06:48:22 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 09:25:50 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,7 +85,7 @@ double		x_elipse(double a, double b, double alpha);
 double		radian(double angle);
 void		print_elipse(double a, double b, void *mlx_ptr, void *win_ptr);
 void		map_info(t_window window);
-void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr);
+void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr, int color);
 void		map_put(t_map map, void *mlx_ptr, void *win_ptr);
 void		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
 void		fill_para(t_point p1, t_point p2, t_point p3, void *mlx_ptr, void *win_ptr);
