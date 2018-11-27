@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/07 17:36:04 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/25 20:05:41 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/26 18:31:36 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,23 +19,25 @@ static int	*convert_int(const char *line)
 	int		i;
 	int		len;
 
-	len = ft_count_char((char*)line, ' ') + 1;
-	printf("len = %d\n", len);
+	len = ft_countnumbers((char*)line);
 	if (!(tab = (int*)ft_memalloc(sizeof(int) * len)))
 		return (0);
 	i = 0;
-	while (*line)
+	while (i < len)
 	{
 		if (*line == ' ')
 			line++;
 		else if (ft_isdigit(*line) || *line == '-' || *line == '+')
 		{
 			tab[i++] = ft_atoi(line);
-			while (ft_isdigit(*line) || *line == '-' || *line == '+')
+			if (*line == '-' || *line == '+')
 				line++;
+			if (ft_isdigit(*line))
+				while (ft_isdigit(*line) && *line)
+					line++;
+			else
+				return (0);
 		}
-		else
-			return (0);
 	}
 	return (tab);
 }
@@ -52,7 +54,7 @@ int			parser(int const fd, t_map *amap)
 	while ((nbchar = get_next_line(fd, &line)) > 0)
 	{
 		if ((*amap).size.i == 0)
-			(*amap).size.j = (double)ft_count_char(line, ' ') + 1.0;
+			(*amap).size.j = (double)ft_countnumbers(line);
 		(*amap).tab = ft_2dintpushback((*amap).tab, (*amap).size.i, convert_int(line));
 		(*amap).size.i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 20:32:23 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/27 16:45:28 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,9 +67,9 @@ static int	deal_key(int key, t_window *window)
 static int	deal_mkey(int button, int x, int y, t_window *window)
 {
 	if (button == 4)
-		(*window).map.unit -= 0.50;
+		(*window).map.unit -= 0.1;
 	else if (button == 5)
-		(*window).map.unit += 0.50;
+		(*window).map.unit += 0.1;
 	printf("%d %d %d\n", button, x, y);
 	mlx_clear_window((*window).mlx_ptr, (*window).win_ptr);
 	map_put((*window).map, (*window).mlx_ptr, (*window).win_ptr);

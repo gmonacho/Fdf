@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/15 18:22:19 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/25 17:45:11 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/26 18:40:48 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,9 +27,9 @@ static void		disp_hor(t_map map, void *mlx_ptr, void *win_ptr)
 		j = 0;
 		while (j < map.size.j)
 		{
-			p2 = create_vpoint(j, i, -map.tab[i][j], map);
+			p2 = create_vpoint(j, -i, -map.tab[i][j], map);
 			if (j > 0 && (is_in_screen(p1) || is_in_screen(p2)))
-				line_put(p1, p2, mlx_ptr, win_ptr, 0xFF0000);
+				line_put(p1, p2, mlx_ptr, win_ptr, 0xFFFFFF);
 			j++;
 			p1 = p2;
 		}
@@ -51,9 +51,9 @@ static void		disp_vec(t_map map, void *mlx_ptr, void *win_ptr)
 		i = 0;
 		while (i < map.size.i)
 		{
-			p2 = create_vpoint((double)j, (double)i, (double)(-map.tab[i][j]), map);
+			p2 = create_vpoint(j, -i, -map.tab[i][j], map);
 			if (i > 0 && (is_in_screen(p1) || is_in_screen(p2)))
-				line_put(p1, p2, mlx_ptr, win_ptr, 0x0000FF);
+				line_put(p1, p2, mlx_ptr, win_ptr, 0xFFFFFF);
 			i++;
 			p1 = p2;
 		}
