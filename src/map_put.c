@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/15 18:22:19 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/26 18:40:48 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/12/03 17:14:57 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,7 +59,6 @@ static void		disp_vec(t_map map, void *mlx_ptr, void *win_ptr)
 		}
 		j++;
 	}
-
 }
 
 static void		disp_map(t_map map, void *mlx_ptr, void *win_ptr)
