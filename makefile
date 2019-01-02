@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/06 19:11:00 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2018/12/09 16:05:18 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/12/14 18:49:34 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -17,7 +17,6 @@ SRC = ./src/main.c \
 	  ./src/parser.c \
 	  ./src/window.c \
 	  ./src/line_put.c \
-	  ./src/map_put.c \
 	  ./src/create_point.c \
 	  ./src/arc_cercle.c \
 	  ./src/x_elipse.c \
@@ -26,13 +25,16 @@ SRC = ./src/main.c \
 	  ./src/print_elipse.c \
 	  ./src/map_info.c \
 	  ./src/axes_put.c \
-	  ./src/create_vpoint.c \
 	  ./src/is_in_screen.c \
 	  ./src/fill_para.c \
 	  ./src/create_rpoint.c \
 	  ./src/event.c \
 	  ./src/ico_put.c \
-	  ./src/close_window.c
+	  ./src/close_window.c \
+	  ./src/rotate_x.c \
+	  ./src/rotate_y.c
+
+# ./src/map_put.c \
 
 OBJ = $(SRC:%.c=%.o)
 
