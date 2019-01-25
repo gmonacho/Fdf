@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/21 18:05:06 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/14 18:00:25 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/25 16:08:28 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,8 @@
 
 void			line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr, int color)
 {
-	int		i;
-	int		nb_point;
+	int			i;
+	int			nb_point = 0;
 	double		dx;
 	double		dy;
 

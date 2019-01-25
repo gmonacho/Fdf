@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   print_elipse.c                                   .::    .:/ .      .::   */
+/*   open_window.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/11 19:48:26 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/12 18:49:13 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/01/24 17:30:34 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2019/01/24 17:52:31 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	print_elipse(double a, double b, void *mlx_ptr, void *win_ptr)
+void	open_window(t_window *window)
 {
-	double		x;
-	double		y;
-
-	x = -b;
-	while (x <= b)
-	{
-		y = y_elipse(a, b, x);
-		mlx_pixel_put(mlx_ptr, win_ptr, WX / 2 - x, WY / 2 - y, 0x0000FF);
-		x++;
-	}
-	x = -b;
-	while (x <= b)
-	{
-		y = -y_elipse(a, b, x);
-		mlx_pixel_put(mlx_ptr, win_ptr, WX / 2 - x, WY / 2 - y, 0x0000FF);
-		x++;
-	}
+	window->mlx_ptr = mlx_init();
+	window->win_ptr = mlx_new_window(window->mlx_ptr, WX, WY, "Fdf");
 }
