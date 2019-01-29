@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/24 06:13:32 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/25 17:28:29 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/26 17:33:59 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,8 +36,5 @@ void	fill_para(t_point p1, t_point p2, t_point p3, void *mlx_ptr, void *win_ptr)
 	}
 	i = -1;
 	while (i++ < nb_point)
-	{
 		line_put(create_rpoint(p1.x + dx * i, p1.y + dy * i), create_rpoint(p2.x + dx * i, p2.y + dy * i), mlx_ptr, win_ptr, 0xAAAAAA);
-	}
-
 }

@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 17:16:24 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 15:50:16 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,6 +67,15 @@ typedef struct		s_cursor
 	double			ygap[2];
 }					t_cursor;
 
+typedef struct		s_img
+{
+	void			*ptr;
+	int				*tab;
+	int				bpp;
+	int				s_l;
+	int				endian;
+}					t_img;
+
 typedef struct		s_map
 {
 	m_size			size;
@@ -93,6 +102,7 @@ typedef struct		s_window
 	t_mouse			mouse;
 	t_map			map;
 	int				keyboard[279];
+	t_img			img;
 }					t_window;
 
 int			window_loop(t_window *window);
@@ -102,10 +112,9 @@ int			is_in_screen(t_point p);
 int			close_window(void *mlx_ptr, void *win_ptr);
 double		radian(double angle);
 void		map_info(t_window window);
-void		line_put(t_point p1, t_point p2, void *mlx_ptr, void *win_ptr, int color);
-void		map_put(t_map map, void *mlx_ptr, void *win_ptr);
-void		axes_put(t_map map, void *mlx_ptr, void *win_ptr);
-void		fill_para(t_point p1, t_point p2, t_point p3, void *mlx_ptr, void *win_ptr);
+void		line_put(t_point p1, t_point p2, t_window *window, int color);
+void		map_put(t_map map, t_window *window);
+void		axes_put(t_map map, t_window *window);
 int			event(int key, t_window *window);
 void		ico_put(t_map map, void *mlx_ptr, void *win_ptr);
 t_point		create_point(double x, double y);

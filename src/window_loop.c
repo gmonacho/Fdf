@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 16:53:33 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 16:36:54 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,23 +16,35 @@
 static void			scroll(t_window *window)
 {
 	if (window->keyboard[13])
-		window->map.cursor.y -= 0.1;
+		window->map.cursor.y -= 1;
 	else if (window->keyboard[1])
-		window->map.cursor.y += 0.1;
+		window->map.cursor.y += 1;
 	else if (window->keyboard[0])
-		window->map.cursor.x -= 0.1;
+		window->map.cursor.x -= 1;
 	else if (window->keyboard[2])
-		window->map.cursor.x += 0.1;
+		window->map.cursor.x += 1;
+	if (window->map.cursor.x < 0)
+		window->map.cursor.x = 0;
+	else if (window->map.cursor.x >= window->map.size.j)
+		window->map.cursor.x = window->map.size.j - 1;
+	if (window->map.cursor.y < 0)
+		window->map.cursor.y = 0;
+	else if (window->map.cursor.y >= window->map.size.i)
+		window->map.cursor.y = window->map.size.i - 1;
 }
 
 static void			refresh_window(t_window *window)
 {
-	mlx_clear_window((*window).mlx_ptr, (*window).win_ptr);
+	mlx_destroy_image(window->mlx_ptr, window->img.ptr);
+	window->img.ptr = mlx_new_image(window->mlx_ptr, WX, WY);
+	window->img.tab = (int*)mlx_get_data_addr(window->img.ptr, &(window->img.bpp), &(window->img.s_l), &(window->img.endian));
+	//mlx_clear_window((*window).mlx_ptr, (*window).win_ptr);
 	scroll(window);
 	project_vectors(window);
-	axes_put((*window).map, (*window).mlx_ptr, (*window).win_ptr);
-	map_put(window->map, window->mlx_ptr, window->win_ptr);
+	axes_put(window->map, window);
+	map_put(window->map, window);
 	map_info(*window);
+	mlx_put_image_to_window(window->img.tab, window->win_ptr, window->img.ptr, 0, 0);
 }
 
 /*static int	deal_key(int key, t_window *window)
@@ -73,6 +85,7 @@ static void	rotate(t_window *window)
 static int		key_press(int keycode, t_window *window)
 {
 	window->keyboard[keycode] = 1;
+	refresh_window(window);
 	return (0);
 }
 
@@ -91,6 +104,8 @@ static int			mouse_press(int button, int x, int y, t_window *window)
 		window->map.unit -= 1;
 	else if (button == 5)
 		window->map.unit += 1;
+	if (window->map.unit < 0)
+		window->map.unit = 0;
 	refresh_window(window);
 	return (0);
 }
@@ -115,8 +130,7 @@ static int			mouse_move(int x, int y, t_window *window)
 
 int			window_loop(t_window *window)
 {
-	map_put(window->map, window->mlx_ptr, window->win_ptr);
-	map_info(*window);
+	window->img.ptr = mlx_new_image(window->mlx_ptr, WX, WY);
 	mlx_hook(window->win_ptr, 6, 0, mouse_move, window); // mlx_move deplacement de la souris
 	mlx_hook(window->win_ptr, 4, 0, mouse_press, window); // test mouse_press
 	mlx_hook(window->win_ptr, 5, 0, mouse_release, window); // test mouse_release

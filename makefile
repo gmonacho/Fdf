@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/06 19:11:00 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/25 14:37:42 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/29 15:36:37 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,7 +21,6 @@ SRC = ./src/main.c \
 	  ./src/map_info.c \
 	  ./src/axes_put.c \
 	  ./src/is_in_screen.c \
-	  ./src/fill_para.c \
 	  ./src/create_rpoint.c \
 	  ./src/event.c \
 	  ./src/close_window.c \
