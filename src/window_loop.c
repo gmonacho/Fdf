@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 16:36:54 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 17:22:44 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,7 +59,7 @@ static void	rotate(t_window *window)
 	int			i;
 	t_vec2d		rotation;
 
-	rotation = mouse_rotation(window->mouse.x, window->mouse.y);
+	rotation = mouse_rotation(window->mouse.x, window->mouse.y, 0);
 	i = 0;
 	while (i < 3)
 	{
@@ -115,6 +115,8 @@ static int			mouse_release(int button, int x, int y, t_window *window)
 	x = 0;
 	y = 0;
 	window->mouse.button[button - 1] = 0;
+	if (button == 1)
+		mouse_rotation(x, y, 1);
 	return (0);
 }
 

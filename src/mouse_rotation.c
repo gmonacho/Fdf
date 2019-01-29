@@ -6,14 +6,14 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/23 18:12:16 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/24 14:44:55 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 17:23:43 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vec2d		mouse_rotation(int x, int y)
+t_vec2d		mouse_rotation(int x, int y, int reset)
 {
 	t_vec2d		new_vec;
 	t_vec2d		rotation;
@@ -34,5 +34,12 @@ t_vec2d		mouse_rotation(int x, int y)
 	oldy = y;
 	rotation.x = new_vec.x / 2;
 	rotation.y = new_vec.y / 2;
+	if (reset)
+	{
+		oldx = 0;
+		oldy = 0;
+		rotation.x = 0;
+		rotation.y = 0;
+	}
 	return (rotation);
 }

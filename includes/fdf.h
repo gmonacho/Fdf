@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 15:50:16 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 17:19:05 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -124,7 +124,7 @@ void		create_3DPoint(double *tab[3], double x, double y, double z);
 t_vec3d		rotate_x(t_vec3d vec, double alpha);
 t_vec3d		rotate_y(t_vec3d vec, double alpha);
 t_vec3d		rotate_z(t_vec3d vec, double alpha);
-t_vec2d		mouse_rotation(int x, int y);
+t_vec2d		mouse_rotation(int x, int y, int reset);
 void		project_vectors(t_window *window);
 
 #endif
