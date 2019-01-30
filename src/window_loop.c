@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:02:51 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 17:22:44 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 18:30:14 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,7 +43,7 @@ static void			refresh_window(t_window *window)
 	project_vectors(window);
 	axes_put(window->map, window);
 	map_put(window->map, window);
-	map_info(*window);
+	//map_info(*window);
 	mlx_put_image_to_window(window->img.tab, window->win_ptr, window->img.ptr, 0, 0);
 }
 
@@ -63,7 +63,7 @@ static void	rotate(t_window *window)
 	i = 0;
 	while (i < 3)
 	{
-		window->map.vec[i] = rotate_z(window->map.vec[i], -rotation.x);
+		window->map.vec[i] = rotate_x(window->map.vec[i], rotation.x);
 		window->map.vec[i] = rotate_y(window->map.vec[i], -rotation.y);
 		i++;
 	}
@@ -116,7 +116,7 @@ static int			mouse_release(int button, int x, int y, t_window *window)
 	y = 0;
 	window->mouse.button[button - 1] = 0;
 	if (button == 1)
-		mouse_rotation(x, y, 1);
+		mouse_rotation(0, 0, 1);
 	return (0);
 }
 

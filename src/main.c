@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/11 18:37:24 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 17:21:19 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 16:49:57 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,18 +36,36 @@ static t_cursor		init_gap(t_cursor cursor)
 	return (cursor);
 }
 
+static int		parsing_error(int error, int fd)
+{
+	if (error == -1)
+		return (write(1, "memory error\n", 13));
+	else if (error == -2)
+		return (write(1, "invalid line size\n", 18));
+	else if (error == -3)
+		return (write(1, "invalid char\n", 13));
+	else if (error == -4)
+		return (write(1, "read failed (get_next_line)\n", 27));
+	else if (fd < 0)
+		return (write(1, "oppening failed\n", 16));
+	else
+		return (write(1, "unidentify error\n", 17));
+}
+
 int		main(int ac, char **av)
 {
 	t_window	window;
 	int			fd;
 	int			i;
+	int			error;
 
+	error = 0;
 	fd = 0;
 	if (ac == 2)
 	{
 		open_window(&window);
-		if ((fd = open(av[1], O_RDONLY)) < 0 || !(parser(fd, &(window.map))))
-			return (write(1, "error opening/parsing failed\n", 29));
+		if ((fd = open(av[1], O_RDONLY)) < 0 || (error = (parser(fd, &(window.map)))) <= 0)
+			return (parsing_error(error, fd));
 		window.map.vec[0] = init_vector(1, 0, 0);
 		window.map.vec[1] = init_vector(0, 1, 0);
 		window.map.vec[2] = init_vector(0, 0, 1);

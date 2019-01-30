@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/25 14:37:52 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/25 14:49:00 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/29 17:59:43 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,10 +21,10 @@ static t_vec2d	dddtodd(t_vec3d vec, int unit)
 	double		B1;
 	double		B2;
 
-	A1 = cos(radian(30));
-	A2 = sin(radian(30));
-	B1 = cos(radian(10));
-	B2 = sin(radian(10));
+	A1 = cos(radian(90));
+	A2 = sin(radian(90));
+	B1 = cos(radian(90));
+	B2 = sin(radian(90));
 	new_vec.x = unit * (A1 * vec.y + A2 * vec.y);
 	new_vec.y = unit * (B2 * (A2 * vec.x - A1 * vec.y) + B1 * vec.z);
 	return (new_vec);

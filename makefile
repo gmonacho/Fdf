@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/06 19:11:00 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2019/01/29 15:36:37 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/29 18:32:59 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -38,7 +38,7 @@ OBJ = $(SRC:%.c=%.o)
 
 CC = gcc
 
-CFLAGS += -Wall -Wextra -Werror -g
+CFLAGS += -Wall -Wextra -Werror -O3 -g
 
 LIBFT = ./libft/libft.a
 
