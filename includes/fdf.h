@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 18:28:01 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 17:07:27 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,6 +80,7 @@ typedef struct		s_map
 {
 	m_size			size;
 	double			unit;
+	double			h_ratio;
 	int				**tab;
 	t_alpha			alpha;
 	t_vec3d			vec[3];

@@ -6,14 +6,14 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/25 14:37:52 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 17:59:43 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 17:31:42 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static t_vec2d	dddtodd(t_vec3d vec, int unit)
+static t_vec2d	dddtodd(t_vec3d vec, double unit)
 {
 	t_vec2d		new_vec;
 	double		A1;

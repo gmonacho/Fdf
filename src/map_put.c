@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/15 18:22:19 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 18:27:37 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 17:22:25 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,10 +76,10 @@ static void		disp_hor_neg(t_map map, t_window *window)
 		j = ft_round(map.cursor.x);
 		while (j >= 0)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (j - 1 >= 0)
 			{
-				p2 = create_vpoint(j - 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j - 1], map);
+				p2 = create_vpoint(j - 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j - 1] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -102,10 +102,10 @@ static void		disp_hor_pos(t_map map, t_window *window)
 		j = ft_round(map.cursor.x);
 		while (j < map.size.j)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (j + 1 < map.size.j)
 			{
-				p2 = create_vpoint(j + 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j + 1], map);
+				p2 = create_vpoint(j + 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j + 1] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -128,10 +128,10 @@ static void		disp_hor(t_map map, t_window *window)
 		j = ft_round(map.cursor.x);
 		while (j >= 0)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (j - 1 >= 0)
 			{
-				p2 = create_vpoint(j - 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j - 1], map);
+				p2 = create_vpoint(j - 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j - 1] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -154,10 +154,10 @@ static void		disp_horo(t_map map, t_window *window)
 		j = ft_round(map.cursor.x);
 		while (j < map.size.j)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (j + 1 < map.size.j)
 			{
-				p2 = create_vpoint(j + 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j + 1], map);
+				p2 = create_vpoint(j + 1 - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j + 1] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -181,10 +181,10 @@ static void		disp_ver_pos(t_map map, t_window *window)
 		i = ft_round(map.cursor.y);
 		while (i < map.size.i)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (i + 1 < map.size.i)
 			{
-				p2 = create_vpoint(j - ft_round(map.cursor.x), i + 1 - ft_round(map.cursor.y), map.tab[i + 1][j], map);
+				p2 = create_vpoint(j - ft_round(map.cursor.x), i + 1 - ft_round(map.cursor.y), map.tab[i + 1][j] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -207,10 +207,10 @@ static void		disp_ver_neg(t_map map, t_window *window)
 		i = ft_round(map.cursor.y);
 		while (i >= 0)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (i - 1 >= 0)
 			{
-				p2 = create_vpoint(j - ft_round(map.cursor.x), i - 1 - ft_round(map.cursor.y), map.tab[i - 1][j], map);
+				p2 = create_vpoint(j - ft_round(map.cursor.x), i - 1 - ft_round(map.cursor.y), map.tab[i - 1][j] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -233,10 +233,10 @@ static void		disp_ver(t_map map, t_window *window)
 		i = ft_round(map.cursor.y);
 		while (i >= 0)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (i - 1 >= 0)
 			{
-				p2 = create_vpoint(j - ft_round(map.cursor.x), i - 1 - ft_round(map.cursor.y), map.tab[i - 1][j], map);
+				p2 = create_vpoint(j - ft_round(map.cursor.x), i - 1 - ft_round(map.cursor.y), map.tab[i - 1][j] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}
@@ -259,10 +259,10 @@ static void		disp_vero(t_map map, t_window *window)
 		i = ft_round(map.cursor.y);
 		while (i < map.size.i)
 		{
-			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j], map);
+			p1 = create_vpoint(j - ft_round(map.cursor.x), i - ft_round(map.cursor.y), map.tab[i][j] * map.h_ratio, map);
 			if (i + 1 < map.size.i)
 			{
-				p2 = create_vpoint(j - ft_round(map.cursor.x), i + 1 - ft_round(map.cursor.y), map.tab[i + 1][j], map);
+				p2 = create_vpoint(j - ft_round(map.cursor.x), i + 1 - ft_round(map.cursor.y), map.tab[i + 1][j] * map.h_ratio, map);
 				if (is_in_screen(p1) || is_in_screen(p2))
 					line_put(p1, p2, window, 0xFFFFFF);
 			}

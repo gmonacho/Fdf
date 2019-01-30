@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/11 18:37:24 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 16:49:57 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/30 17:07:56 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,6 +73,7 @@ int		main(int ac, char **av)
 		window.map.alpha.y = 0;
 		window.map.alpha.z = 0;
 		window.map.unit = 10.0;
+		window.map.h_ratio = 1;
 		window.map.size.height_ratio = 1;
 		window.map.cursor.x = window.map.size.j / 2;
 		window.map.cursor.y = window.map.size.i / 2;
