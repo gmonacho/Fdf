@@ -6,14 +6,22 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/23 18:12:16 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/29 18:04:51 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/08 15:58:20 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vec2d		mouse_rotation(int x, int y, int reset)
+static void			set_reset(int *oldx, int *oldy, t_vec2d *rotation)
+{
+	*oldx = 0;
+	*oldy = 0;
+	rotation->x = 0;
+	rotation->y = 0;
+}
+
+t_vec2d				mouse_rotation(int x, int y, int reset)
 {
 	t_vec2d		new_vec;
 	t_vec2d		rotation;
@@ -21,12 +29,7 @@ t_vec2d		mouse_rotation(int x, int y, int reset)
 	static int	oldy = 0;
 
 	if (reset)
-	{
-		oldx = 0;
-		oldy = 0;
-		rotation.x = 0;
-		rotation.y = 0;
-	}
+		set_reset(&oldx, &oldy, &rotation);
 	else
 	{
 		if (!oldx && !oldy)
@@ -41,8 +44,8 @@ t_vec2d		mouse_rotation(int x, int y, int reset)
 		}
 		oldx = x;
 		oldy = y;
-		rotation.x = new_vec.x / 2;
-		rotation.y = new_vec.y / 2;
+		rotation.x = new_vec.x / 4;
+		rotation.y = new_vec.y / 4;
 	}
 	return (rotation);
 }

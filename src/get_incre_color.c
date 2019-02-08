@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   create_projection.c                              .::    .:/ .      .::   */
+/*   get_incre_color.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/12/10 18:39:50 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/10 18:46:12 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/01/30 19:35:49 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2019/02/07 17:48:41 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_projection	create_projection(int x, int y, int z)
+double		get_incre_color(t_map map)
 {
-	t_projection	new_project;
+	double	max;
+	double	incre;
+	int		i;
+	int		j;
 
-	new_project.coord[0] = x;
-	new_project.coord[1] = y;
-	new_project.coord[2] = z;
-	return (new_project);
+	i = 0;
+	max = 0;
+	while (i < map.size.i)
+	{
+		j = 0;
+		while (j < map.size.j)
+		{
+			if (map.tab[i][j] > max)
+				max = (double)map.tab[i][j];
+			j++;
+		}
+		i++;
+	}
+	incre = 255.0 / max;
+	return (incre);
 }

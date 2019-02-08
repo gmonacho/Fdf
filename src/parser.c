@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   parsing.c                                        .::    .:/ .      .::   */
+/*   parser.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/07 17:36:04 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/30 17:04:58 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/02/05 16:15:00 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2019/02/08 15:46:23 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,22 +15,18 @@
 
 static int	convert_int(const char *line, int **int_line, double size_j)
 {
-	int		*tab;
 	int		i;
-	int		len;
 
-	if ((len = ft_countnumbers((char*)line)) != size_j)
-		return (-2);
-	if (!(tab = (int*)ft_memalloc(sizeof(int) * len)))
+	if (!(*int_line = (int*)ft_memalloc(sizeof(int) * size_j)))
 		return (-1);
 	i = 0;
-	while (i < len)
+	while (i < size_j)
 	{
 		if (*line == ' ')
 			line++;
 		else if (ft_isdigit(*line) || *line == '-' || *line == '+')
 		{
-			tab[i++] = ft_atoi(line);
+			(*int_line)[i++] = ft_atoi(line);
 			if (*line == '-' || *line == '+')
 				line++;
 			if (ft_isdigit(*line))
@@ -42,7 +38,6 @@ static int	convert_int(const char *line, int **int_line, double size_j)
 		else
 			return (-3);
 	}
-	*int_line = tab;
 	return (1);
 }
 
@@ -52,19 +47,25 @@ int			parser(int const fd, t_map *amap)
 	int		*int_line;
 	int		ret;
 	int		error;
+	int		**tmp;
 
-	if (!((*amap).tab = (int**)ft_memalloc(sizeof(int*))))
-		return (-1);
-	(*amap).size.i = 0.0;
-	(*amap).size.j = 0.0;
+	amap->size.i = 0.0;
+	amap->size.j = 0.0;
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
-		if ((*amap).size.i == 0)
-			(*amap).size.j = (double)ft_countnumbers(line);
-		if ((error = convert_int(line, &int_line, (*amap).size.j)) <= 0)
+		if (amap->size.i == 0)
+			amap->size.j = (double)ft_countnumbers(line);
+		if ((ft_countnumbers((char*)line)) != amap->size.j)
+			return (-2);
+		if ((error = convert_int(line, &int_line, amap->size.j)) <= 0)
 			return (error);
-		(*amap).tab = ft_2dintpushback((*amap).tab, (*amap).size.i, int_line);
-		(*amap).size.i++;
+		tmp = amap->tab;
+		amap->tab = ft_2dintpushback(amap->tab,
+				amap->size.i, amap->size.j, int_line);
+		ft_2dintdel(&tmp, amap->size.i);
+		amap->size.i++;
+		ft_intdel(&int_line);
+		ft_strdel(&line);
 	}
 	return ((ret < 0) ? -4 : 1);
 }

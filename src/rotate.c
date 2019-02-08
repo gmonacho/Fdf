@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   rotate_z.c                                       .::    .:/ .      .::   */
+/*   rotate.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/12/13 19:17:09 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/08 15:24:12 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/02/08 15:13:10 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2019/02/08 15:24:38 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vec3d		rotate_z(t_vec3d vec, double alpha)
+void			rotate(t_window *window)
 {
-	t_vec3d		new_vec;
+	int			i;
+	t_vec2d		rotation;
 
-	new_vec.x = vec.x * cos(radian(alpha)) + vec.y * -sin(radian(alpha));
-	new_vec.y = vec.x * sin(radian(alpha)) + vec.y * cos(radian(alpha));
-	new_vec.z = vec.z;
-	return (new_vec);
+	rotation = mouse_rotation(window->mouse.x, window->mouse.y, 0);
+	i = 0;
+	while (i < 3)
+	{
+		window->map.vec[i] = rotate_x(window->map.vec[i], rotation.x);
+		window->map.vec[i] = rotate_y(window->map.vec[i], -rotation.y);
+		i++;
+	}
 }

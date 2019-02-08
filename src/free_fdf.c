@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   create_rpoint.c                                  .::    .:/ .      .::   */
+/*   free_fdf.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/24 06:47:42 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 06:48:32 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/01/31 17:23:17 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2019/01/31 19:34:43 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-
 #include "../includes/fdf.h"
 
-t_point		create_rpoint(double x, double y)
+void	free_fdf(t_window *window)
 {
-	t_point		point;
-
-	point.x = x;
-	point.y = y;
-	return (point);
+	ft_2dintdel(&(window->map.tab), window->map.size.i);
 }
